@@ -19,21 +19,23 @@ import random
 # if __name__ == '__main__':
 #     descubra()
 
-def descubra_computador():
-    baixo= 1
-    alto= 10
+def descubra_computador(x):
+    minimo= 1
+    maximo= x
     feedback= ""
-    num= int(input('Escolha o número: '))
-    tentativa=0
-    while num != tentativa:
-        tentativa= random.randint(1, 10)
-        feedback= input(f"A tentativa {tentativa} é muito alta (A) ou muito baixa (B):  ").upper()
+
+    while feedback != 'C' :
+        if minimo != maximo:
+            tentativa= random.randint(minimo, maximo)
+        else:
+            tentativa= minimo
+        feedback= input(f"A tentativa {tentativa} é muito alta (A), muito baixa (B) ou correta (C):  ").upper()
         if feedback == "A":
-            alto= tentativa -1
+            maximo= tentativa -1
         elif feedback == "B":
-            baixo= tentativa + 1
+            minimo= tentativa + 1
     print("Parabéns, você acertou o número")
 
 
 if __name__ == '__main__':
-    descubra_computador()
+    descubra_computador(20)
